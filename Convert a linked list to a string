@@ -1,8 +1,0 @@
-def stringify(node):
-    if node is None:
-        return 'None'
-    str_node = ''
-    while node is not None:
-        str_node += str(node.data) + ' -> '
-        node = node.next
-    return str_node + 'None'
