@@ -1,1 +1,11 @@
-
+def get_nth(node, index):
+    node_now = node
+    ind = 0
+    while node is not None:
+        if ind == index:
+            return node_now
+        ind+=1
+        node_now = node_now.next
+        if node_now is None and ind<=index:
+            raise IndexError
+    raise IndexError
