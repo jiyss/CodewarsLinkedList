@@ -1,1 +1,22 @@
+class Node(object):
+    def __init__(self, data):
+        self.data = data
+        self.next = None
 
+def remove_duplicates(head):
+    datas = []
+    went = set()
+    while head is not None:
+        if head.data not in went:
+            went.add(head.data)
+            datas.append(head.data)
+        head = head.next
+
+    if not datas:
+        return None
+    new_head = Node(datas[0])
+    now_h = new_head
+    for value in datas[1:]:
+        now_h.next = Node(value)
+        now_h = now_h.next
+    return new_head
