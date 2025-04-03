@@ -1,1 +1,19 @@
+class Node(object):
+    def __init__(self, data=None):
+        self.data = data
+        self.next = None
 
+def reverse(head):
+    datas = []
+    while head is not None:
+        datas.append(head.data)
+        head = head.next
+
+    if not datas:
+        return None
+    new_head = Node(datas[len(datas)-1])
+    now_h = new_head
+    for value in datas[:-1][::-1]:
+        now_h.next = Node(value)
+        now_h = now_h.next
+    return new_head
