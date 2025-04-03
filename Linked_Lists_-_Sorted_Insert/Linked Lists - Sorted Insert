@@ -1,1 +1,23 @@
+""" For your information:
+class Node(object):
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+"""
 
+def sorted_insert(head, data):
+    datas = []
+    while head is not None:
+        datas.append(head.data)
+        head = head.next
+    datas.append(data)
+    s_datas = sorted(datas)
+
+    if not s_datas:
+        return None
+    new_head = Node(s_datas[0])
+    now_h = new_head
+    for value in s_datas[1:]:
+        now_h.next = Node(value)
+        now_h = now_h.next
+    return new_head
