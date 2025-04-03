@@ -1,1 +1,18 @@
+from preloaded import Node
 
+def swap_pairs(head):
+    if head is None or head.next is None:
+        return head
+    new_head = head.next
+    head.next = new_head.next
+    new_head.next = head
+    connect = head
+    while connect.next and connect.next.next:
+        first = connect.next
+        second = connect.next.next
+
+        connect.next = second
+        first.next = second.next
+        second.next = first
+        connect = first
+    return new_head
